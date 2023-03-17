@@ -1,35 +1,16 @@
-import { createServer } from "http"
-import express from "express"
-import { ApolloServer, gql } from "apollo-server-express"
+import { ApolloServer } from 'apollo-server';
+import { importSchema } from 'graphql-import';
+import { createContext } from './context';
+import { resolvers } from './resolvers';
 
-const startServer = async () => {
+const typeDefs = importSchema('./src/schema/schema.graphql');
 
-  const port = process.env.PORT || 4000
-  const app = express()
-  const httpServer = createServer(app)
+const server = new ApolloServer({
+	typeDefs,
+	resolvers,
+	context: createContext,
+});
 
-  const typeDefs = gql`
-  type Query {
-    hello:String
-  }`
-
-  const resolvers = {
-    Query: { hello: () => 'Hello devMH' }
-  }
-
-  const apolloServer = new ApolloServer({
-    typeDefs, resolvers
-  })
-
-  await apolloServer.start()
-
-  apolloServer.applyMiddleware({
-    app, path: '/api'
-  })
-
-  httpServer.listen({ port: port }, () => {
-    console.log(`Server ta on: localhost:${port}${apolloServer.graphqlPath}`)
-  })
-}
-
-startServer()
+server.listen().then(({ url }) => {
+	console.log(`Server is running at ${url}`);
+});
