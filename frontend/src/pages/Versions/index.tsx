@@ -1,5 +1,9 @@
+import { Form } from "../../components/Form"
+
 function Versions() {
-	return <h1>Versions</h1>
+	return (
+		<Form title="Versões">teste</Form>
+	)
 }
 
 export { Versions }

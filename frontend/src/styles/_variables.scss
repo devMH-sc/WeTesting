@@ -1,0 +1,36 @@
+$blue-primary: #0f1f28;
+$blue-primary-gradient: linear-gradient(
+	180deg,
+	rgba(15, 31, 40, 0.75) 0%,
+	#0f1f28 100%
+);
+
+$blue-secondary: #253d48;
+$blue-secondary-gradient: linear-gradient(
+	180deg,
+	rgba(37, 61, 72, 0.75) 0%,
+	#253d48 100%
+);
+
+$blue-light: #eef3f6;
+$gray-text: #323238;
+$gray-secondary: #747474;
+$white: #ffffff;
+$red: #f75a68;
+$red-gradient: linear-gradient(
+	180deg,
+	rgba(247, 90, 104, 0.75) 0%,
+	#f75a68 100%
+);
+
+$green: #00b37e;
+$green-gradient: linear-gradient(
+	180deg,
+	rgba(0, 179, 126, 0.75) 0%,
+	#00b37e 100%
+);
+
+$breakpoint-sm: 425px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;

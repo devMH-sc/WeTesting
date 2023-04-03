@@ -1,5 +1,9 @@
+import { Form } from "../../components/Form"
+
 function Users() {
-	return <h1>Users</h1>
+	return (
+		<Form title="Usuários">teste</Form>
+	)
 }
 
 export { Users }
