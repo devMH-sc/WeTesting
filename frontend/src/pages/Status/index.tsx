@@ -1,5 +1,9 @@
+import { Form } from "../../components/Form"
+
 function Status() {
-	return <h1>Status</h1>
+	return (
+		<Form title="Situações">teste</Form>
+	)
 }
 
 export { Status }

@@ -1,0 +1,95 @@
+@import '../../styles/variables';
+
+.topbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 72px;
+	margin: 16px 16px 32px 16px;
+	border-radius: 24px;
+
+	background: $blue-primary-gradient;
+
+	.logoContainer {
+		position: absolute;
+		left: 120px;
+
+		img {
+			width: 132px;
+		}
+	}
+	.navContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: $white;
+		gap: 100px;
+
+		span {
+			flex-direction: column;
+			position: relative;
+			height: 100%;
+
+			cursor: pointer;
+
+			&:hover {
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -4px;
+					left: 0;
+					width: 100%;
+					height: 2px;
+					background-color: $white;
+					animation: underline 0.5s ease-in-out forwards;
+				}
+			}
+		}
+	}
+
+	.menuBurger {
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+	}
+
+	@media (max-width: 980px) {
+		justify-content: flex-end;
+
+		.logoContainer {
+			left: 120px;
+		}
+		.navContainer {
+			margin-right: 120px;
+			gap: 80px;
+		}
+	}
+
+	@media (max-width: $breakpoint-md) {
+		justify-content: flex-end;
+
+		.logoContainer {
+			left: 60px;
+		}
+		.navContainer {
+			margin-right: 60px;
+			gap: 80px;
+		}
+	}
+
+	@media (max-width: $breakpoint-sm) {
+	}
+}
+
+@keyframes underline {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}

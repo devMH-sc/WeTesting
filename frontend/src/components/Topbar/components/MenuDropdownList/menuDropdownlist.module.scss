@@ -1,0 +1,23 @@
+@import '../../../../styles/variables';
+
+.dropdownItem {
+	background: none;
+	border: none;
+	color: $white;
+	cursor: pointer;
+	font-size: 1.6rem;
+	text-align: left;
+	width: 100%;
+	padding: 0.8rem 1.6rem;
+
+	&:hover {
+		background: $blue-secondary;
+	}
+
+	&:first-child {
+		margin-top: 1.6rem;
+	}
+	&:last-child {
+		margin-bottom: 1.6rem;
+	}
+}
