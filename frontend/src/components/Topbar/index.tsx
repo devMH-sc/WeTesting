@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { MenuDropdown } from './components/MenuDropdown';
-import { MenuDropdownList } from './components/MenuDropdownList';
+import { MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
 
 import styles from './topbar.module.scss';
 import logo from '../../assets/svg/logo.svg';
 import menuBurger from '../../assets/svg/menuBurger.svg';
+import { Navigate } from './components/Navigate';
 
 function Topbar() {
 	const [isMenuBurger, setIsMenuBurger] = useState(false);
@@ -15,7 +12,7 @@ function Topbar() {
 		width: 0,
 		height: 0,
 	});
-	const navigate = useNavigate();
+	const menuBurgerRef = useRef<HTMLSpanElement>(null);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -41,18 +38,41 @@ function Topbar() {
 		}
 	}, [size.width, isMenuBurger]);
 
-	function handleMenuHamburguerClick() {
-		setIsMenuOpen(!isMenuOpen);
-	}
+	useEffect(() => {
+		function handleClickOutsideMenuBurger(event: any): void {
+			if (!isClickInsideMenuBurger(event, menuBurgerRef)) {
+				setIsMenuOpen(false);
+			}
+		}
 
-	function handleMenuClick(path: string) {
-		navigate(path);
-	}
+		function isClickInsideMenuBurger(
+			event: MouseEvent<Document, MouseEvent>,
+			menuBurgerRef: RefObject<HTMLSpanElement>,
+		): boolean {
+			const targetElement = event.target as Node;
+			if (!menuBurgerRef.current) {
+				return false;
+			}
 
-	function handleExitClick() {
-		//Revogar token de acesso do usuário
+			return menuBurgerRef.current.contains(targetElement);
+		}
 
-		handleMenuClick('login');
+		document.addEventListener('click', handleClickOutsideMenuBurger);
+
+		return () => {
+			document.removeEventListener('click', handleClickOutsideMenuBurger);
+		};
+	}, [menuBurgerRef, isMenuOpen]);
+
+	function handleMenuHamburguerClick(event: MouseEvent) {
+		const targetElement = event.target as Node;
+		if (
+			targetElement.textContent !== 'Cadastros' &&
+			targetElement.textContent !==
+				'CadastrosUsuáriosSetoresProdutosMódulosRotinasSituaçõesVersões'
+		) {
+			setIsMenuOpen(!isMenuOpen);
+		}
 	}
 
 	return (
@@ -62,18 +82,24 @@ function Topbar() {
 			</div>
 			<div className={styles.navContainer}>
 				{isMenuBurger ? (
-					<button
+					<span
+						ref={menuBurgerRef}
 						className={styles.menuBurger}
 						onClick={handleMenuHamburguerClick}
 					>
 						<img src={menuBurger} />
-					</button>
+						{isMenuOpen && (
+							<div
+								className={`${styles.menuBurgerContent} ${
+									isMenuOpen ? styles.menuBurgerContentVisible : ''
+								}`}
+							>
+								<Navigate isMenuBurger={isMenuBurger} />
+							</div>
+						)}
+					</span>
 				) : (
-					<>
-						<span onClick={() => handleMenuClick('tasks')}>Lançamentos</span>
-						<MenuDropdown title="Cadastros" content={<MenuDropdownList />} />
-						<span onClick={handleExitClick}>Sair</span>
-					</>
+					<Navigate />
 				)}
 			</div>
 		</header>
