@@ -4,9 +4,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 
 	height: 72px;
-	margin: 16px 16px 32px 16px;
+	top: 16px;
+	margin: 0px 16px 48px 16px;
 	border-radius: 24px;
 
 	background: $blue-primary-gradient;

@@ -4,27 +4,13 @@ import styles from './topbar.module.scss';
 import logo from '../../assets/svg/logo.svg';
 import menuBurger from '../../assets/svg/menuBurger.svg';
 import { Navigate } from './components/Navigate';
+import { useGlobalContext } from '../../Hooks/useGlobalContext';
 
 function Topbar() {
+	const { size } = useGlobalContext();
 	const [isMenuBurger, setIsMenuBurger] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [size, setSize] = useState({
-		width: 0,
-		height: 0,
-	});
 	const menuBurgerRef = useRef<HTMLSpanElement>(null);
-
-	useEffect(() => {
-		const handleResize = () => {
-			setSize({
-				width: window.innerWidth,
-				height: window.innerHeight,
-			});
-		};
-		window.addEventListener('resize', handleResize);
-
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
 
 	useEffect(() => {
 		if (size.width > 768 && isMenuBurger) {

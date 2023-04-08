@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+
+.background {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: rgb(0, 0, 0, 0.3);
+	z-index: 200;
+}
+
+.modal {
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 920px;
+	margin: 14rem;
+
+	border-radius: 24px;
+	background: $white;
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 32px;
+
+		.title {
+			color: $gray-text;
+			font-size: 2.4rem;
+			font-weight: bold;
+		}
+		.close {
+			width: 16px;
+			height: 16px;
+
+			background: transparent;
+			border: 0;
+			cursor: pointer;
+		}
+	}
+
+	@media (max-width: $breakpoint-md) {
+		margin: 8rem;
+	}
+	@media (max-width: $breakpoint-sm) {
+		margin: 2rem;
+	}
+}
