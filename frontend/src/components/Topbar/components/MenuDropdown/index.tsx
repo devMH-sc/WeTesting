@@ -9,14 +9,16 @@ import {
 
 import styles from './menuDropdown.module.scss';
 import chevron from '../../../../assets/svg/Chevron.svg';
+import chevronGray from '../../../../assets/svg/ChevronGray.svg';
 
 interface menuDropdownProps {
 	title: string;
 	content: ReactNode;
+	isMenuBurger?: boolean;
 }
 
 function MenuDropdown(props: menuDropdownProps) {
-	const { title, content } = props;
+	const { title, content, isMenuBurger } = props;
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const dropdownRef = useRef<HTMLSpanElement>(null);
@@ -59,15 +61,21 @@ function MenuDropdown(props: menuDropdownProps) {
 		>
 			{title}
 			<img
-				src={chevron}
-				className={isDropdownOpen ? styles.DropdownActive : ''}
+				src={isMenuBurger ? chevronGray : chevron}
+				className={`${
+					isDropdownOpen
+						? isMenuBurger
+							? styles.dropdownActiveMenuBurger
+							: styles.dropdownActive
+						: ''
+				}`}
 			/>
 			<div
-				className={`${styles.dropdownContent} ${
-					isDropdownOpen ? styles.dropdownContentVisible : ''
-				}`}
+				className={`${styles.dropdownContent}
+				${isDropdownOpen ? styles.dropdownContentVisible : ''}
+				${isMenuBurger ? styles.dropdownMenuBurger : ''}`}
 			>
-				{content}
+				{isDropdownOpen && content}
 			</div>
 		</span>
 	);

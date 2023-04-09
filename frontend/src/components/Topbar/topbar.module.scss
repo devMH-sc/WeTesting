@@ -4,9 +4,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 
 	height: 72px;
-	margin: 16px 16px 32px 16px;
+	top: 16px;
+	margin: 0px 16px 48px 16px;
 	border-radius: 24px;
 
 	background: $blue-primary-gradient;
@@ -34,7 +36,7 @@
 
 			cursor: pointer;
 
-			&:hover {
+			&:not(.menuBurger):hover {
 				&::after {
 					content: '';
 					position: absolute;
@@ -55,6 +57,53 @@
 		cursor: pointer;
 		height: 40px;
 		width: 40px;
+
+		.menuBurgerContent {
+			margin-top: 0.8rem;
+			position: absolute;
+			right: 10px;
+			z-index: 100;
+			width: 160px;
+			border-radius: 0 0 16px 16px;
+			display: flex;
+			flex-direction: column;
+
+			background: $blue-light;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+
+			span {
+				padding: 0.8rem 1.6rem;
+				width: 100%;
+				color: $gray-text;
+
+				&:first-child {
+					margin-top: 1.6rem;
+				}
+				&:last-child {
+					margin-bottom: 1.6rem;
+				}
+
+				&:not(.menuBurger):hover {
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: -4px;
+						left: 0;
+						width: 100%;
+						height: 2px;
+						background-color: $gray-text;
+						animation: underline 0.5s ease-in-out forwards;
+					}
+				}
+			}
+		}
+
+		.menuBurgerContentVisible {
+			opacity: 1;
+		}
 	}
 
 	@media (max-width: 980px) {
@@ -82,6 +131,12 @@
 	}
 
 	@media (max-width: $breakpoint-sm) {
+		.logoContainer {
+			left: 40px;
+		}
+		.navContainer {
+			margin-right: 0px;
+		}
 	}
 }
 

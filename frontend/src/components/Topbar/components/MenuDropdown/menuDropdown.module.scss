@@ -22,12 +22,24 @@
 		transition: opacity 0.3s ease-in-out;
 	}
 
-	.DropdownActive {
+	.dropdownActive {
 		transform: rotate(180deg);
+	}
+	.dropdownActiveMenuBurger {
+		transform: rotate(90deg);
 	}
 
 	.dropdownContentVisible {
 		display: block;
 		opacity: 1;
+	}
+	.dropdownMenuBurger {
+		@media (max-width: $breakpoint-md) {
+			left: -160px;
+			top: 0px;
+		}
+		@media (max-width: $breakpoint-sm) {
+			left: 0px;
+		}
 	}
 }

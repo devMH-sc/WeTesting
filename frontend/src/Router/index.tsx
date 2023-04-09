@@ -1,22 +1,20 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 
-import { Login } from '../pages/Login'
-import { Departments } from '../pages/Departments'
-import { Users } from '../pages/Users'
-import { Products } from '../pages/Products'
-import { Modules } from '../pages/Modules'
-import { Scripts } from '../pages/Scripts'
-import { Status } from '../pages/Status'
-import { Versions } from '../pages/Versions'
-import { Tasks } from '../pages/Tasks'
-import { DefaultLayout } from '../layouts/DefaultLayout'
-
+import { Login } from '../pages/Login';
+import { Departments } from '../pages/Departments';
+import { Users } from '../pages/Users';
+import { Products } from '../pages/Products';
+import { Modules } from '../pages/Modules';
+import { Scripts } from '../pages/Scripts';
+import { Status } from '../pages/Status';
+import { Versions } from '../pages/Versions';
+import { Tasks } from '../pages/Tasks';
+import { DefaultLayout } from '../layouts/DefaultLayout';
 
 function Router() {
 	return (
 		<Routes>
 			<Route path="/" element={<DefaultLayout />}>
-				<Route path="/Login" element={<Login />} />
 				<Route path="/departments" element={<Departments />} />
 				<Route path="/users" element={<Users />} />
 				<Route path="/products" element={<Products />} />
@@ -25,9 +23,11 @@ function Router() {
 				<Route path="/status" element={<Status />} />
 				<Route path="/versions" element={<Versions />} />
 				<Route path="/tasks" element={<Tasks />} />
+				<Route path="/" element={<Tasks />} />
 			</Route>
+			<Route path="/login" element={<Login />} />
 		</Routes>
-	)
+	);
 }
 
-export { Router }
+export { Router };
