@@ -1,8 +1,8 @@
-import { Form } from "../../components/Form"
+import { FormLogin } from "../../components/FormLogin"
 
 function Login() {
 	return (
-		<Form title="Login">teste</Form>
+		<FormLogin></FormLogin>
 	)
 }
 
