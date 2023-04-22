@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+.internalButton {
+	padding: 1rem;
+	border-radius: 9999px;
+	display: flex;
+	width: 100%;
+
+	cursor: pointer;
+	transition: transform 0.5s;
+
+	img {
+		height: 1.4rem;
+		width: 1.4rem;
+		margin-left: 16px;
+	}
+
+	span {
+		flex: 1;
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	&:hover {
+		transform: translate(-0.1rem, -0.2rem);
+	}
+}
+
+.buttonPrimary {
+	background: $blue-primary-gradient;
+	border: 0;
+
+	.label {
+		color: white;
+	}
+}
+
+.buttonSecondary {
+	background: transparent;
+	border: 2px solid $blue-primary;
+
+	.label {
+		color: $blue-primary;
+	}
+}
