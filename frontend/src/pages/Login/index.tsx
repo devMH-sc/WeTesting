@@ -1,8 +1,14 @@
-import { FormLogin } from "../../components/FormLogin"
+import { Bottons } from "../../components/Bottons"
+import { Form } from "../../components/Form"
+import { Inputs } from "../../components/Inputs"
 
 function Login() {
 	return (
-		<FormLogin></FormLogin>
+		<Form title="WeTesting">
+			<Inputs placeInp="E-mail">e</Inputs>
+			<Inputs placeInp="Senha">s</Inputs>
+			<Bottons namebot="Login"></Bottons>
+		</Form>
 	)
 }
 
