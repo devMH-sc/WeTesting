@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 
 import close from '../../assets/svg/close.svg';
-import styles from './Modal.module.scss';
+import styles from './modal.module.scss';
 
 interface ModalProps {
 	isOpen: boolean;

@@ -1,4 +1,4 @@
-import styles from './InternalButton.module.scss';
+import styles from './internalButton.module.scss';
 
 export enum ButtonType {
 	PRIMARY = 'primary',
@@ -6,6 +6,7 @@ export enum ButtonType {
 }
 
 interface InternalButtonProps {
+	form?: string;
 	icon?: string;
 	label: string;
 	onClick: (props?: any) => any;
@@ -17,7 +18,8 @@ interface InternalButtonProps {
 }
 
 function InternalButton(props: InternalButtonProps) {
-	const { icon, label, onClick, type, color, background, maxWidth } = props;
+	const { form, icon, label, onClick, type, color, background, maxWidth } =
+		props;
 
 	let customStyleButton = {};
 	if (background || maxWidth) {
@@ -31,6 +33,7 @@ function InternalButton(props: InternalButtonProps) {
 
 	return (
 		<button
+			form={form}
 			className={`${styles.internalButton} ${
 				type === ButtonType.PRIMARY
 					? styles.buttonPrimary

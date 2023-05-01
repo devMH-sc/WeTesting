@@ -1,9 +1,7 @@
-import { Form } from "../../components/Form"
+import { Page } from '../../components/Page';
 
 function Scripts() {
-	return (
-		<Form title="Rotinas">teste</Form>
-	)
+	return <Page title="Rotinas">teste</Page>;
 }
 
-export { Scripts }
+export { Scripts };
