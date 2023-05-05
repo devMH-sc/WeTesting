@@ -1,9 +1,7 @@
-import { Form } from "../../components/Form"
+import { Page } from '../../components/Page';
 
 function Status() {
-	return (
-		<Form title="Situações">teste</Form>
-	)
+	return <Page title="Situações">teste</Page>;
 }
 
-export { Status }
+export { Status };

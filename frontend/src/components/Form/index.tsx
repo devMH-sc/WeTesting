@@ -1,19 +1,34 @@
+import { FormProvider, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import styles from './form.module.scss';
 import { ReactNode } from 'react';
-import styles from './form.module.scss'
+import { ObjectSchema } from 'yup';
 
 interface FormProps {
-	title?: string;
+	id: string;
 	children: ReactNode;
+	validateSchema: ObjectSchema<any>;
+	submit?: any;
 }
 
 function Form(props: FormProps) {
-	const { title, children } = props
-	return (
-		<div className={styles.form}>
-			{title && <h1 className={styles.title}>{title}</h1>}
-			{children}
-		</div>
-	)
-};
+	const { id, children, validateSchema, submit } = props;
+	const formContext = useForm({
+		resolver: yupResolver(validateSchema),
+	});
 
-export { Form }
+	return (
+		<FormProvider {...formContext}>
+			<form
+				id={id}
+				className={styles.form}
+				onSubmit={formContext.handleSubmit(submit)}
+			>
+				{children}
+			</form>
+		</FormProvider>
+	);
+}
+
+export { Form };

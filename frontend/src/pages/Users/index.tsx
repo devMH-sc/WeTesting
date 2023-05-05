@@ -1,7 +1,7 @@
-import { Form } from '../../components/Form';
+import { Page } from '../../components/Page';
 
 function Users() {
-	return <Form title="Usuários">teste</Form>;
+	return <Page title="Usuários">teste</Page>;
 }
 
 export { Users };

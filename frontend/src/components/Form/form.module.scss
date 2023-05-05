@@ -1,29 +1,3 @@
-@import '../../styles/variables';
-
 .form {
-	margin: 0 12rem 0rem 12rem;
-	padding: 2.4rem;
-	height: calc(100% - 12rem);
-	max-height: 720px;
-
-	border-radius: 24px;
-	background: #fff;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-
-	@media (max-width: $breakpoint-md) {
-		margin: 0 6rem 0rem 6rem;
-		height: calc(100% - 6rem);
-	}
-
-	@media (max-width: $breakpoint-sm) {
-		margin: 0 2rem 0rem 2rem;
-		height: calc(100% - 2rem);
-	}
-
-	.title {
-		font-size: 3.2rem;
-		font-weight: bold;
-		padding-bottom: 4.8rem;
-		color: $blue-primary;
-	}
+	width: 100%;
 }

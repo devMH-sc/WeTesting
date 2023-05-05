@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+
+.inputContainer {
+	position: relative;
+
+	input {
+		width: 100%;
+		padding: 1.2rem;
+		padding-left: 1.6rem;
+		border: 1px solid $gray-secondary;
+		border-radius: 16px;
+		outline: none;
+		color: $blue-primary;
+
+		transition: border-color 0.2s ease-in-out;
+
+		&:focus {
+			border-color: $blue-primary;
+		}
+	}
+
+	label {
+		position: absolute;
+		top: 12px;
+		left: 16px;
+		color: $gray-text;
+		transition: all 0.2s ease-in-out;
+		cursor: text;
+	}
+
+	.errorText {
+		position: absolute;
+		bottom: -1.2rem;
+		left: 1.6rem;
+		color: $red;
+		font-size: 1rem;
+	}
+}
+
+.filled {
+	label {
+		top: -14px;
+		font-size: 12px;
+		color: $gray-text;
+		cursor: default;
+	}
+}
+
+.error {
+	input {
+		border: 1px solid $red;
+		color: $red;
+
+		&:focus {
+			border-color: $red;
+		}
+	}
+	label {
+		color: $red;
+	}
+}

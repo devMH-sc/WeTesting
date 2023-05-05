@@ -1,9 +1,7 @@
-import { Form } from "../../components/Form"
+import { Page } from '../../components/Page';
 
 function Versions() {
-	return (
-		<Form title="Versões">teste</Form>
-	)
+	return <Page title="Versões">teste</Page>;
 }
 
-export { Versions }
+export { Versions };
