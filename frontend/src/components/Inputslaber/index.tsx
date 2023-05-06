@@ -18,7 +18,7 @@ function Inputslabel(props: InputslabelProps){
 			<div className={styles.inputslabel}>
 				<label className={styles.label} style={{color:labelcor}}>{namelabelInp}</label>
 				<input className={styles.inputs} style={{border:bordercor}}></input>
-				<div style={{color:labelcor}}>error mensagem</div>
+				<div style={{color:labelcor}}>error mensage</div>
 			</div>
 		);
 }
