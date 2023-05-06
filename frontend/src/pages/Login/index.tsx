@@ -1,15 +1,19 @@
-import { Bottons } from "../../components/Bottons"
-import { Form } from "../../components/Form"
-import { Inputs } from "../../components/Inputs"
+import { Buttons } from '../../components/Buttons';
+import { Form } from '../../components/Form';
+import { Inputs } from '../../components/Inputs';
+import styles from './login.module.scss';
+
 
 function Login() {
 	return (
-		<Form title="WeTesting">
-			<Inputs placeInp="E-mail">e</Inputs>
-			<Inputs placeInp="Senha">s</Inputs>
-			<Bottons namebot="Login"></Bottons>
-		</Form>
-	)
+		<div className={styles.form}>
+			<Form title="WeTesting" pages="Login">
+			<div className={styles.inputss}><Inputs placeInp="E-mail">.</Inputs></div>
+					<Inputs placeInp="Senha">.</Inputs>
+				<Buttons nameBot="Login"></Buttons>
+			</Form>
+		</div>
+	);
 }
 
-export { Login }
+export { Login };

@@ -8,7 +8,8 @@ interface InputsProps {
 
 function Inputs(props: InputsProps){
   const {placeInp, children} = props
-  return(
+
+	return(
 		<div>
 			{children && <input className={styles.inputs} placeholder={placeInp}></input>}
 		</div>

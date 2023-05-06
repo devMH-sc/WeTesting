@@ -1,0 +1,24 @@
+.inputslabel{
+
+	.inputs{
+		display: inline-block;
+		flex-direction: column;
+		align-items: center;
+		padding: 1rem;
+		width: 100%;
+		box-sizing: border-box;
+
+		border: 1px solid #747474;
+		border-radius: 16px;
+	}
+		.label{
+			margin: 3%;
+			position: relative;
+			top: 9px;
+			background: #ffffff;
+			border-color:1px solid #747474;
+			color: #747474;
+			font-size: 14px;
+		}
+
+}
